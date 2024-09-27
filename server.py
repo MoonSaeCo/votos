@@ -3,6 +3,7 @@ from hashlib import md5
 from random import randint
 import datetime as dt
 import jwt
+import urna
 app = Flask(__name__)
 
 key = 'Eleicao20242'
@@ -92,11 +93,24 @@ def mesario():
 
 @app.route('/upload', methods=['POST'])
 def upload():
-	print(request.values)
-	print(request.values['nome'])
-	print(request.values['matricula'])
-	print(md5(request.values['matricula'].encode()))
-	return 'GAP'
+	mat = request.values["matricula"]
+	cod = request.values["codigo"]
+	if cod+mat in codigos.keys():
+		if codigos[cod+mat][t] > dt.datetime():
+			for i in range(urna.n_pessoas):
+				with open(urna.pasta_dados + f"pessoas[{i}].txt") as arq:
+					if mat in arq.read():
+						codigos.pop(cod+mat)
+						return 'Um voto já foi contabilizado na matrícula: {mat}'
+				if urna.escrever_voto(mat, request.values["voto"]):
+					return f"Voto realizado com sucesso na matrícula: {mat}"
+				else:
+					return f"Erro ao contabilizar o voto na matrícula: {mat}<br>Por favor, tente novamente mais tarde"
+				
+		else:
+			codigos.pop(cod+mat)
+			return 'Codigo Expirado'
+	return f"Erro, Matrícula: {mat} não possui um código.<br>Pegue um código com um mesário para votar<br>Se já pegou um código, verifique se digitou o código ou a matrícula corretamente"
 
 if __name__ == "__main__":
 	app.run(host = '0.0.0.0', port = 8080, debug=True)
