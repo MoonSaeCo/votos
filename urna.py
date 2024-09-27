@@ -21,7 +21,7 @@ def escrever_voto(mat, voto):
 		info['arquivos_pessoas'][pessoas]['n'] += 1
 		info['n_pessoas'] += 1
 		
-		if info['grupos'][grupo]['n'] == info['max_n']:
+		if info['grupos'][grupo]['n'] == info['max_n'] and info['max_n'] != 0:
 			info['not full'].pop(info['not full'].index(grupo))
 		
 		with open(pasta_dados + info['arquivos_pessoas'][pessoas]["archive_name"], 'a') as arq:
@@ -33,16 +33,6 @@ def escrever_voto(mat, voto):
 		
 		with open(pasta_dados + 'info.json', 'w') as arq:
 			json.dump(info, arq, indent = 4)
-		
-		# ~ with open(pasta_dados + 'info.json', 'w') as  arq:
-			# ~ json.dump(arq, info)
 		return True
 	except:
 		return False
-	
-# ~ for k in range(100):
-	# ~ x = str(randint(0, 9999))
-	# ~ x = ("0" * (len(x) - 4)) + x
-	# ~ escrever_voto(f'20253PEL{x}', '2')
-
-
