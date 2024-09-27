@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Votar</title>
 </head>
 <body>
     <form action="/upload" method="post" enctype="multipart/form-data">
@@ -13,11 +13,16 @@
                 <td><input type="text" name="matricula" id="matricula"></td>
             </tr>
             <tr>
-                <td><label for="nome">Nome: </label></td>
-                <td><input type="text" name="nome" id="nome"></td>
+                <td><label for="codigo">Código: </label></td>
+                <td><input type="text" name="codigo" id="codigo"></td>
             </tr>
             <tr>
-                <td><select name="voto" id=""></select></td>
+                <td><select name="voto" id="voto">
+					<option value="1">Maria</option>
+					<option value="2">José</option>
+					<option value="3">Fábio</option>
+					<option value="4">Claúdia</option>
+                </select></td>
             </tr>
         </table>
         
