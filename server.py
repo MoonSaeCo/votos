@@ -48,14 +48,17 @@ def index():
 
 @app.route('/codigo', methods=['POST'])
 def codigo():
-	codigox = 0
+	codigox = "Essa Matricula ja tem codigo"
 	mat = request.values['matricula']
 	var = verificar_codigos(matricula = mat)
+	for i in range(urna.n_pessoas):
+		with open(urna.pasta_dados + f"pessoas{i}.txt") as arq:
+			if mat in arq.read():
+				return f"Essa Matricula: {mat} ja votou"
+				
 	if var[0]:
-		if codigos[var[1]][t] < dt.datetime.now():
+		if codigos[var[1]]['t'] < dt.datetime.now():
 			codigos.pop(var[1])
-		else:
-			pass
 	else: codigox = criar_codigo(mat)
 	
 	return render_template('codigo.html', matricula = mat, codigo = codigox)
@@ -96,9 +99,9 @@ def upload():
 	mat = request.values["matricula"]
 	cod = request.values["codigo"]
 	if cod+mat in codigos.keys():
-		if codigos[cod+mat][t] > dt.datetime():
+		if codigos[cod+mat]['t'] > dt.datetime.now():
 			for i in range(urna.n_pessoas):
-				with open(urna.pasta_dados + f"pessoas[{i}].txt") as arq:
+				with open(urna.pasta_dados + f"pessoas{i}.txt") as arq:
 					if mat in arq.read():
 						codigos.pop(cod+mat)
 						return 'Um voto já foi contabilizado na matrícula: {mat}'
