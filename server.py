@@ -38,7 +38,7 @@ def criar_codigo(matricula):
 		x = ("0" * (6 - len(x))) + x
 	t = dt.datetime.now()
 	t = t + dt.timedelta(minutes = 5, seconds = 30)
-	codigos.update({f'{x}{matricula}': {'t': t, 'matricula': matricula}})
+	codigos.update({f'{x}{matricula}': {'t': t, 'matricula': matricula, 'codigo': x}})
 	return x
 
 @app.route('/')
@@ -53,8 +53,10 @@ def codigo():
 	if var[0]:
 		if codigos[var[1]][t] < dt.datetime.now():
 			codigos.pop(var[1])
-			
-	codigox = criar_codigo(mat)
+		else:
+			pass
+	else: codigox = criar_codigo(mat)
+	
 	return render_template('codigo.html', matricula = mat, codigo = codigox)
 
 @app.route('/mesario', methods=['POST', 'GET'])
