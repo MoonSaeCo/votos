@@ -12,7 +12,7 @@ n_grupos = 10
 # Numero maximo de pessoa por grupo, 0 para ilimitado
 # Serve para evitar de um arquivo acabar pegando gente demais
 # Bom colocar um limite caso o numero de pessoas seja limitado
-max_n_grupo = 50
+max_n_grupo = 0
 
 
 
