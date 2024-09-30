@@ -40,21 +40,20 @@ def main():
 	
 	fig, ax = plt.subplots()
 	ax.pie(x, labels = labels, autopct = valor)
-	y = 0
-	for i in votos.keys():
-		ax.text(-2.2, 1-(0.3 * y), f"{labels[y]}: {votos[i]}")
-		y += 1
+	# ~ y = 0
+	# ~ for i in votos.keys():
+		# ~ ax.text(-2.2, 1-(0.3 * y), f"{labels[y]}: {votos[i]}")
+		# ~ y += 1
 	# ~ ax.text(-1.7, , "oi")
 	plt.savefig('votos.png')
 	
 	with open('votos.txt', 'w') as arq:
+		arq.write('Votos:')
 		for i in votos.keys():
-			arq.write(f"{i}{votos[i]}")
+			arq.write(f"	{i}: {votos[i]}\n")
 	
 	return 0
 
 def valor(e):
 	return f"{e:.1f}%"
 
-if __name__=="__main__":
-	main()
