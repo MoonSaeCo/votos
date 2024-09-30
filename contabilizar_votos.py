@@ -1,10 +1,13 @@
 from urna import pasta_dados, n_pessoas
 from json import load
 from hashlib import sha256
+from config import lista_canditados
 import matplotlib.pyplot as plt
 
 def main():
-	votos = {'1': 0, '2': 0, '3': 0, '4': 0}
+	votos = {}
+	for i in lista_canditados:
+		votos.update({i: 0})
 	info = {}
 	with open(pasta_dados + "info.json", 'r') as arq:
 		info = load(arq)
@@ -23,17 +26,13 @@ def main():
 				l = j.strip().split(":")
 				if l[1] in lista_pessoas:
 					votos[l[0]] += 1
-					print(True, l[0])
-				else:
-					print(False, l[0])
-	
-	print(f"Chapa 1: {votos['1']}\nChapa 2: {votos['2']}\nChapa 3: {votos['3']}\nChapa 4:{votos['4']}")
+	# ~ print(f"Chapa 1: {votos['1']}\nChapa 2: {votos['2']}\nChapa 3: {votos['3']}\nChapa 4:{votos['4']}")
 	
 	labels = list()
 	dic = dict()
 	for i in votos.keys():
-		labels.append(f"Chapa {i}")
-		dic.update({f"Chapa {i}": votos[i]})
+		labels.append(str(i))
+		dic.update({str(i): votos[i]})
 	x = list()
 	for i in votos.keys():
 		x.append(votos[i])
@@ -41,13 +40,17 @@ def main():
 	
 	fig, ax = plt.subplots()
 	ax.pie(x, labels = labels, autopct = valor)
-	y = 1
+	y = 0
 	for i in votos.keys():
-		print(y)
-		ax.text(-2.2, 1.7-(0.3 * y), f"Chapa {y}: {votos[i]}")
+		ax.text(-2.2, 1-(0.3 * y), f"{labels[y]}: {votos[i]}")
 		y += 1
 	# ~ ax.text(-1.7, , "oi")
 	plt.savefig('votos.png')
+	
+	with open('votos.txt', 'w') as arq:
+		for i in votos.keys():
+			arq.write(f"{i}{votos[i]}")
+	
 	return 0
 
 def valor(e):
