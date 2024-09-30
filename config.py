@@ -1,22 +1,30 @@
-# Esse Arquivo sao as configuraçoes do setup.py
+# Esse arquivo são as configurações do setup.py
 #
 
 
-# Numero de arquivos que serao gerados
-# Os votos sao distribuidos aleatoriamente pelos arquivos
-# Assim mantem o voto secreto
+
 n_grupos = 10
+# Número de arquivos que serão gerados
+# Os votos são distribuidos aleatoriamente pelos arquivos
+# Assim mantém o voto secreto
 
 
 
-# Numero maximo de pessoa por grupo, 0 para ilimitado
-# Serve para evitar de um arquivo acabar pegando gente demais
-# Bom colocar um limite caso o numero de pessoas seja limitado
 max_n_grupo = 0
+# Número maximo de pessoa por grupo, 0 para ilimitado
+# Serve para evitar que um arquivo fique com mais pessoas que o outros
+# Recomendado definir um limite caso o número de pessoas seja limitado
 
 
 
-# Numero de arquivos que serao criados para salvar que ja votou
-# Bom colocar mais de um que ajuda a atrapalhar o rastreamento de voto
-# Embora improvavel eh uma protecao a mais 
 n_arquivos_pessoas = 3
+# Número de arquivos que serão criados para salvar quem já votou
+# Recomendado colocar mais de um 
+
+lista_canditados = ['Chapa 1', 'Chapa 2', 'Chapa 3', 'Chapa 4']
+# Uma lista usada para definir os candidatos que serão votados
+# Precisa ser uma string
+# Não colocar ';' nos nomes
+
+necessidade_mesario = True
+# Defina True ou False para a necessidade de ter um mesário para o voto ser realizado
