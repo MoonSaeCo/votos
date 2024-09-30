@@ -18,10 +18,7 @@
             </tr>
             <tr>
                 <td><select name="voto" id="voto">
-					<option value="1">Maria</option>
-					<option value="2">José</option>
-					<option value="3">Fábio</option>
-					<option value="4">Claúdia</option>
+					
                 </select></td>
             </tr>
         </table>
@@ -32,4 +29,18 @@
         <input type="submit" value="submit" name="submit">
     </form>
 </body>
+<script defer>
+	const opcoes = "{{opcoes}}";
+	var ops = opcoes.split(";");
+	const votos = document.getElementById("voto");
+	for (let i = 0; i < ops.length; i++) {
+		if (ops[i] != '') {
+			let op = document.createElement('option');
+			op.value = ops[i];
+			op.textContent = ops[i];
+			votos.appendChild(op);
+		}
+		
+	}
+</script>
 </html>
