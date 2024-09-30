@@ -1,14 +1,16 @@
 from flask import Flask, request, render_template, make_response
-from hashlib import md5
 from random import randint
 import datetime as dt
 import jwt
 import urna
+from config import n_arquivos_pessoas as n_pessoas, lista_canditados, necessidade_mesario
 app = Flask(__name__)
 
 key = 'Eleicao20242'
 codigos = {}
-
+opcoes = ""
+for i in lista_canditados:
+	opcoes += f'{i};'
 
 
 logins = [{
@@ -44,17 +46,17 @@ def criar_codigo(matricula):
 
 @app.route('/')
 def index():
-	return render_template('index.html')
+	return render_template('index.html', opcoes=opcoes)
 
 @app.route('/codigo', methods=['POST'])
 def codigo():
 	codigox = "Essa Matricula ja tem codigo"
 	mat = request.values['matricula']
 	var = verificar_codigos(matricula = mat)
-	for i in range(urna.n_pessoas):
+	for i in range(n_pessoas):
 		with open(urna.pasta_dados + f"pessoas{i}.txt") as arq:
 			if mat in arq.read():
-				return f"Essa Matricula: {mat} ja votou"
+				return f"<h1>Matrícula {mat}: voto já computado.</h1>"
 				
 	if var[0]:
 		if codigos[var[1]]['t'] < dt.datetime.now():
@@ -88,9 +90,7 @@ def mesario():
 			resp.set_cookie('login', jwt.encode(login, key, algorithm="HS256"), samesite = 'Lax', max_age = 900)
 			return resp
 		else:
-			return "Autenticação Falha"
-		# ~ except: 
-			# ~ return 'Erro'
+			return "<h1>Autenticação Falha.</h1>"
 	
 	
 
@@ -98,23 +98,32 @@ def mesario():
 def upload():
 	mat = request.values["matricula"]
 	cod = request.values["codigo"]
-	if cod+mat in codigos.keys():
-		if codigos[cod+mat]['t'] > dt.datetime.now():
-			for i in range(urna.n_pessoas):
-				with open(urna.pasta_dados + f"pessoas{i}.txt") as arq:
-					if mat in arq.read():
-						codigos.pop(cod+mat)
-						return 'Um voto já foi contabilizado na matrícula: {mat}'
+	if necessidade_mesario:
+		if cod+mat in codigos.keys():
+			if codigos[cod+mat]['t'] > dt.datetime.now():
 				if urna.escrever_voto(mat, request.values["voto"]):
-					return f"Voto realizado com sucesso na matrícula: {mat}"
+					codigos.pop(cod+mat)
+					return f"<h1>Matrícula {mat}: Voto realizado com sucesso</h1>"
 				else:
-					return f"Erro ao contabilizar o voto na matrícula: {mat}<br>Por favor, tente novamente mais tarde"
-				
+					return f"<h1>Matrícula {mat}: Erro ao contabilizar o voto<br>Por favor, tente novamente mais tarde</h1>"
+					
+			else:
+				codigos.pop(cod+mat)
+				return '<h1>Codigo Expirado</h1>'
+		return f"<h1>Erro. Matrícula {mat}: não possui um código.<br>Solicite um código ao mesário para votar.<br>Caso já tenha recebido um código, verifique se a matrícula ou o código foram digitados corretamente.</h1>"
+	else:
+		for i in range(n_pessoas):
+			with open(urna.pasta_dados + f"pessoas{i}.txt") as arq:
+				if mat in arq.read():
+					return f"<h1>Matrícula {mat}: voto já computado.</h1>"
+		if urna.escrever_voto(mat, request.values["voto"]):
+				return f"<h1>Matrícula {mat}: Voto realizado com sucesso</h1>"
 		else:
-			codigos.pop(cod+mat)
-			return 'Codigo Expirado'
-	return f"Erro, Matrícula: {mat} não possui um código.<br>Pegue um código com um mesário para votar<br>Se já pegou um código, verifique se digitou o código ou a matrícula corretamente"
-
-if __name__ == "__main__":
+			return f"<h1>Matrícula {mat}: Erro ao contabilizar o voto<br>Por favor, tente novamente mais tarde</h1>"
+		
+def main():
 	app.run(host = '0.0.0.0', port = 8080, debug=True)
+	
+if __name__=="__main__":
+	main()
 
