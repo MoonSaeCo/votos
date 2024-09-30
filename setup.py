@@ -7,7 +7,6 @@ def main():
 	
 	files_path = os.path.join(os.getcwd() + "/dados")
 	l = os.listdir(files_path)
-	
 	print('Deletando Arquivos')
 	
 	for i in l:
@@ -51,5 +50,3 @@ def main():
 	return 0
 
 
-if __name__ == "__main__":
-	main()
