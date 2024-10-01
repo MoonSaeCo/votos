@@ -19,8 +19,10 @@ pip install -r requirements.txt
     ``` 
 
 ## Dentro do main.py
-- No programa surgirá 3 opções.
-- - Preparar arquivos
+# No programa surgirá 3 opções.
+- Preparar arquivos
   - Irá deletar qualquer dado salvo e criará novos arquivos vazios.
-- - Abrir o servidor
+- Abrir o servidor
   - Irá abrir o servidor. Para encerrar basta fazer ctrl + c
+- Contabilizar votos
+  - Irá criar um arquivo ("votos.png") com um gráfico pizza e um arquivo ("votos.txt") com os números de votos.
