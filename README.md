@@ -15,7 +15,7 @@ pip install -r requirements.txt
     ou, dependendo da versão do python instalada:
 
     ```sh
-    python main.py
+    python main.py 
     ``` 
 
 ## Dentro do main.py 
