@@ -18,7 +18,7 @@ pip install -r requirements.txt
     python main.py
     ``` 
 
-## Dentro do main.py
+## Dentro do main.py 
 ### No programa surgirá 3 opções.
 - Preparar arquivos
   - Irá deletar qualquer dado salvo e criará novos arquivos vazios.
