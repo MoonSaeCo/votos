@@ -19,7 +19,7 @@ pip install -r requirements.txt
     ``` 
 
 ## Dentro do main.py
-# No programa surgirá 3 opções.
+### No programa surgirá 3 opções.
 - Preparar arquivos
   - Irá deletar qualquer dado salvo e criará novos arquivos vazios.
 - Abrir o servidor
