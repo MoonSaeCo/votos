@@ -5,7 +5,8 @@ import os
 
 class Tela():
 	def __init__(self):
-		self.menu = """################## Menu ##################
+		self.menu = """
+################## Menu ##################
 #                                        #
 # 1 - Preparar Arquivos                  #
 # 2 - Abrir Servidor                     #
@@ -27,9 +28,13 @@ def main():
 		if opcao == "1":
 			setup.main()
 		if opcao == "2":
-			try:
+			x = input("""###############
+# 1 - Python  #
+# 2 - Python3 #
+###############\n> """)
+			if x == "1":
 				os.system("python server.py")
-			except:
+			elif x == "2":
 				os.system("python3 server.py")
 		if opcao == "3":
 			contabilizar_votos.main()
