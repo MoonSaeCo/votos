@@ -2,17 +2,20 @@
 > Sistema de votações sem fins lucrativos (até então)  construído para facilitar processos eleitorais, como do Grêmio ou Centro Acadêmico, dentro de instituições de ensino.
 
 ## Instalando dependências
-- Em "requirements.txt" temos os nomes das bibliotecas a serem instaladas. Infelizmente as bibliotecas "os","json" e "hashlib" não  estão baixando ainda. Primeiro instalamos as bibliotecas:
+- Em "requirements.txt" temos os nomes das bibliotecas a serem instaladas. Primeiro instalamos as bibliotecas:
 
     ```sh
     pip install flask
     ```
+    
     ```sh
     pip install pyJWT
     ```
+
     ```sh
     pip install datetime
     ```
+
     ```sh
     pip install matplotlib
     ```
