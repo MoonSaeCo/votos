@@ -21,10 +21,20 @@ n_arquivos_pessoas = 3
 # Número de arquivos que serão criados para salvar quem já votou
 # Recomendado colocar mais de um 
 
-lista_canditados = ['Chapa 1', 'Chapa 2', 'Chapa 3', 'Chapa 4']
+
+
+lista_canditados = ["Chapa 1", "Chapa 2", "Chapa 3", "Chapa 4"]
 # Uma lista usada para definir os candidatos que serão votados
 # Precisa ser uma string
 # Não colocar ';' nos nomes
 
 necessidade_mesario = True
 # Defina True ou False para a necessidade de ter um mesário para o voto ser realizado
+
+
+
+logins = [{
+	'nome': 'User546',
+	'senha': '123'
+}]
+# Uma lista com o nome de usuário e senha usados para os mesários fazerem login
