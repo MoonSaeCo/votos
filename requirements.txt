@@ -1,8 +1,5 @@
 Flask==3.0.3
 pyJWT==2.3.0
-hashlib
 datetime
-os
-json
 matplotlib
 

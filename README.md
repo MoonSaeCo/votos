@@ -2,27 +2,24 @@
 > Sistema de votações sem fins lucrativos (até então)  construído para facilitar processos eleitorais, como do Grêmio ou Centro Acadêmico, dentro de instituições de ensino.
 
 ## Instalando dependências
-- Em "requirements.txt" temos os nomes das bibliotecas a serem instaladas. Primeiro instalamos as bibliotecas:
+### Em "requirements.txt" temos os nomes das bibliotecas a serem instaladas.
 
-
+    ```sh
     pip install flask
-
-
-
+    ```
+    ```sh
     pip install pyJWT
-
-
-
+    ```
+    ```sh
     pip install datetime
-
-
-
+    ```
+    ```sh
     pip install matplotlib
-
-
+    ```
+#### Este programa usa algumas bibliotecas teoricamente nativas, são as seguintes: "os", "hashlib" e "json'. Se alguma não estiver instalada, se certifique de instalar.
 ## Executando o programa
 
-- No terminal, dentro do diretório votos, coloque o comando:
+### No terminal, dentro do diretório votos, coloque o comando:
     ```sh
     python3 main.py
     ```
