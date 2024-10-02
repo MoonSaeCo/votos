@@ -4,21 +4,21 @@
 ## Instalando dependências
 - Em "requirements.txt" temos os nomes das bibliotecas a serem instaladas. Primeiro instalamos as bibliotecas:
 
-    ```sh
+
     pip install flask
-    ```
-    
-    ```sh
+
+
+
     pip install pyJWT
-    ```
 
-    ```sh
+
+
     pip install datetime
-    ```
 
-    ```sh
+
+
     pip install matplotlib
-    ```
+
 
 ## Executando o programa
 
