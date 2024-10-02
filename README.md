@@ -16,7 +16,7 @@
     ```sh
     pip install matplotlib
     ```
-#### Este programa usa algumas bibliotecas teoricamente nativas, são as seguintes: os, hashlib e json. Se alguma não estiver instalada, se certifique de instalar.
+#### Este programa usa algumas bibliotecas teoricamente nativas, são as seguintes: "os", "hashlib" e "json'. Se alguma não estiver instalada, se certifique de instalar.
 ## Executando o programa
 
 ### No terminal, dentro do diretório votos, coloque o comando:
