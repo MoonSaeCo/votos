@@ -1,1 +1,72 @@
-{"clusters": [{"id": 0, "archive_name": "cluster0.txt", "n": 0}], "full": [], "current_cluster": 0}
+{
+    "grupos": [
+        {
+            "archive_name": "grupo0.txt",
+            "n": 0
+        },
+        {
+            "archive_name": "grupo1.txt",
+            "n": 0
+        },
+        {
+            "archive_name": "grupo2.txt",
+            "n": 0
+        },
+        {
+            "archive_name": "grupo3.txt",
+            "n": 0
+        },
+        {
+            "archive_name": "grupo4.txt",
+            "n": 0
+        },
+        {
+            "archive_name": "grupo5.txt",
+            "n": 0
+        },
+        {
+            "archive_name": "grupo6.txt",
+            "n": 0
+        },
+        {
+            "archive_name": "grupo7.txt",
+            "n": 0
+        },
+        {
+            "archive_name": "grupo8.txt",
+            "n": 0
+        },
+        {
+            "archive_name": "grupo9.txt",
+            "n": 0
+        }
+    ],
+    "not full": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "arquivos_pessoas": [
+        {
+            "archive_name": "pessoas0.txt",
+            "n": 0
+        },
+        {
+            "archive_name": "pessoas1.txt",
+            "n": 0
+        },
+        {
+            "archive_name": "pessoas2.txt",
+            "n": 0
+        }
+    ],
+    "max_n": 0,
+    "n_pessoas": 0
+}

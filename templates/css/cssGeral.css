@@ -1,0 +1,22 @@
+*{
+    /* Cores do site */
+
+    /* Da primária a quaternária ainda não foram decididas */
+
+    --cor-primaria:#b6ce8a;
+    --cor-secundaria:#c5d6a1;
+    --cor-detalhe: #BDFFCA;
+    --cor-terciario:#8EE687;
+    --cor-quartenario:#FAF989;
+
+    --cor-texto-p: #b7b7b7;
+}
+
+header{
+    background-color: var(--cor-texto-p);
+    width: 100px;
+    height: 100px;
+}
+body{
+    color:red;
+}
