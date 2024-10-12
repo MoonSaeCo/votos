@@ -8,8 +8,8 @@
 </head>
 <body>
     <header><img src="{{ url_for('static', filename='img/logo.png') }}" alt="Minha Imagem"></header>
-    <h1>Matrícula: {{matricula}} <br>Código: {{codigo}}</h1>
-    <button onclick="window.location.href = '/mesario'">Retornar para Tela de Mesário</button>
+    <label id="fraseDeEfeito">Matrícula: {{matricula}} <br>Código: {{codigo}}</label>
+    <button onclick="window.location.href = '/mesario'" name="submit">Retornar </button>
     
 </body>
 </html>

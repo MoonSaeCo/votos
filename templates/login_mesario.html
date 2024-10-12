@@ -8,10 +8,11 @@
 </head>
 <body>
     <header><img src="{{ url_for('static', filename='img/logo.png') }}" alt="Minha Imagem"></header>
+    <label id="fraseDeEfeito">Quem é você?</label>
     <form action="/mesario" method="post" enctype="multipart/form-data">
         <input type="text" name="nome" id="nome" placeholder="Usuário"><br>
         <input type="text" name="senha" id="senha" placeholder="Senha">
-        <input type="submit" value="Entrar">
+        <input type="submit" value="Entrar" name="submit">
     </form>
 </body>
 </html>
