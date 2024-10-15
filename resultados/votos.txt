@@ -1,0 +1,4 @@
+Votos:	Chapa 1: 0
+	Chapa 2: 0
+	Chapa 3: 1
+	Chapa 4: 0
