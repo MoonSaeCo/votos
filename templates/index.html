@@ -3,30 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/cssGeral.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cssGeral.css') }}">
     <title>Votar</title>
 </head>
 <body>
+    <header><img src="{{ url_for('static', filename='img/logo.png') }}" ></header>
+    <label id="fraseDeEfeito">Escolha com responsabilidade!</label>
     <form action="/upload" method="post" enctype="multipart/form-data">
         <table>
             <tr>
-                <td><label for="matricula">Matrícula: </label></td>
-                <td><input type="text" name="matricula" id="matricula"></td>
+                <td><input type="text" name="matricula" id="matricula" placeholder="Matrícula"></td>
             </tr>
             <tr>
-                <td><label for="codigo">Código: </label></td>
-                <td><input type="text" name="codigo" id="codigo"></td>
+                <td><input type="text" name="codigo" id="codigo" placeholder="Código"></td>
             </tr>
             <tr>
-                <td><select name="voto" id="voto">
-					
-                </select></td>
+                <td><select name="voto" id="voto"></select></td>
             </tr>
         </table>
         
         
         
         
-        <input type="submit" value="submit" name="submit">
+        <input type="submit" value="Votar" name="submit">
     </form>
 </body>
 <script defer>

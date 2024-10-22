@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cssGeral.css') }}">
     <title>login mesario</title>
 </head>
 <body>
+    <header><img src="{{ url_for('static', filename='img/logo.png') }}" alt="Minha Imagem"></header>
+    <label id="fraseDeEfeito">Quem é você?</label>
     <form action="/mesario" method="post" enctype="multipart/form-data">
-        <label for="nome">Nome</label>
-        <input type="text" name="nome" id="nome"><br>
-        <label for="senha">Senha: </label>
-        <input type="text" name="senha" id="senha">
-        <input type="submit" value="submit">
+        <input type="text" name="nome" id="nome" placeholder="Usuário"><br>
+        <input type="text" name="senha" id="senha" placeholder="Senha">
+        <input type="submit" value="Entrar" name="submit">
     </form>
 </body>
 </html>
