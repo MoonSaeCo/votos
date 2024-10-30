@@ -86,7 +86,7 @@ def codigo():
 	for i in range(n_pessoas):
 		with open(urna.pasta_dados + f"pessoas{i}.txt") as arq:
 			if mat in arq.read():
-				return f"<h1>Matrícula {mat}: voto já computado.</h1>"
+				return render_template("message.html", mss = f"Matrícula {mat}: voto já computado.")
 	'''
 	  Se a matrícula já tiver um código
 	  Então ele checa se a data expirou
@@ -139,7 +139,7 @@ def mesario():
 			# Não tira o samesite = 'Lax', não sei o que faz, mas só funciona com isso
 			return resp
 		else:
-			return "<h1>Autenticação Falha.</h1>"
+			return render_template("message.html", mss = "Autenticação Falha.")
 	
 	
 # Tela do upload da votação
@@ -162,7 +162,7 @@ def upload():
 				if urna.escrever_voto(mat, request.values["voto"]):
 					# Se der para escrever ele apaga a matrícula e devolve um feedback ao usuário
 					codigos.pop(cod+mat)
-					return f"<h1>Matrícula {mat}: Voto realizado com sucesso</h1>"
+					return render_template("message.html", mss = f"Matrícula {mat}: Voto realizado com sucesso")
 					
 				# Se der erro ele devolve um feedback de erro ao usuário
 				else:					
@@ -172,11 +172,11 @@ def upload():
 			else: 
 				# Então o código é deletado de codigos e é retornado um feedback
 				codigos.pop(cod+mat)
-				return '<h1>Codigo Expirado</h1>'
+				return render_template("message.html", mss = 'Codigo Expirado')
 		
 		# Se não existir essa matrícula com um o código vai retornar um erro	
 		else: 
-			return f"<h1>Erro. Matrícula {mat}: não possui um código.<br>Solicite um código ao mesário para votar.<br>Caso já tenha recebido um código, verifique se a matrícula ou o código foram digitados corretamente.</h1>"
+			return render_template("message.html", mss = f"Erro. Matrícula {mat}: não possui um código.<br>Solicite um código ao mesário para votar.<br>Caso já tenha recebido um código, verifique se a matrícula ou o código foram digitados corretamente.")
 	
 	# Se não necessitar de um mesário	
 	else:
@@ -193,9 +193,9 @@ def upload():
 		# Se der certo retorna um feedback positivo
 		# Se der errado retorn um erro
 		if urna.escrever_voto(mat, request.values["voto"]):
-				return f"<h1>Matrícula {mat}: Voto realizado com sucesso</h1>"
+				return render_template("message.html", mss = f"Matrícula {mat}: Voto realizado com sucesso")
 		else:
-			return f"<h1>Matrícula {mat}: Erro ao contabilizar o voto<br>Por favor, tente novamente mais tarde</h1>"
+			return render_template("message.html", mss = f">Matrícula {mat}: Erro ao contabilizar o voto<br>Por favor, tente novamente mais tarde")
 		
 def main():
 	app.run(host = '0.0.0.0', port = 8080, debug=True)
