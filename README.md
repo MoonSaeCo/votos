@@ -37,3 +37,6 @@
   - Irá abrir o servidor. Para encerrar basta fazer ctrl + c
 - Contabilizar votos
   - Irá criar um arquivo ("votos.png") com um gráfico pizza e um arquivo ("votos.txt") com os números de votos.
+
+## Contabilização de Votos
+Quando rodar a contabilização de votos, os resultados vão aparecer na pasta resultados no arquivo votos.html
