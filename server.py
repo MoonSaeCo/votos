@@ -99,6 +99,7 @@ def codigo():
 			codigox = criar_codigo(mat)
 		else:
 			codigox = "Já possui código"
+			render_template('error.html', mensagem = codigox) #Elisa: ntenho certeza ainda se está certo, mas espero que ele renderize a tela de erro 
 	else: codigox = criar_codigo(mat)
 	
 	return render_template('codigo.html', matricula = mat, codigo = codigox)
