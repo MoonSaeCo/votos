@@ -3,6 +3,12 @@ from json import load
 from hashlib import sha256
 from config import lista_canditados
 import matplotlib.pyplot as plt
+import os
+pasta = os.getcwd()
+
+print(pasta_dados)
+with open(pasta_dados + "info.json", 'r') as arq:
+		print(load(arq))
 
 def main():
 	# Declarando votos e colocando as chaves como o nome dos candidatos
@@ -55,7 +61,7 @@ def main():
 	# "autopct = valor" faz chamar a função valor que vai arredondar uma porcentagem para cada parte da pizza
 	fig, ax = plt.subplots()
 	ax.pie(x, labels = labels, autopct = valor)
-	plt.savefig('resultados/votos.png')
+	plt.savefig(pasta + '/resultados/votos.png')
 	
 	# Cria o arquivo "votos.txt" para salvar a contagem de votos
 	
@@ -65,12 +71,12 @@ def main():
 	
 	# Gera um html com a informaçao básica
 	html = str()
-	with open("templates/template.html", "r") as arq:
+	with open(pasta + "/templates/template.html", "r") as arq:
 		html = arq.read()
 	# ~ print(html)
 	html = html.replace("{{texto}}", t)
 	# ~ print(html)
-	with open("resultados/votos.html", "w") as arq:
+	with open(pasta + "/resultados/votos.html", "w") as arq:
 		arq.write(html)
 	
 	return 0
@@ -79,4 +85,6 @@ def main():
 # essa função serve de callback para criar a função que cria a pizza
 def valor(e):
 	return f"{e:.1f}%"
+	
+main()
 
