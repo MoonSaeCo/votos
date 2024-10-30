@@ -20,14 +20,14 @@
 ## Executando o programa
 
 ### No terminal, dentro do diretório votos, coloque o comando:
-    ```sh
+    
     python3 main.py
-    ```
+    
     ou, dependendo da versão do python instalada:
 
-    ```sh
+    
     python main.py 
-    ``` 
+    
 
 ## Dentro do main.py 
 ### No programa surgirá 3 opções.
