@@ -85,6 +85,4 @@ def main():
 # essa função serve de callback para criar a função que cria a pizza
 def valor(e):
 	return f"{e:.1f}%"
-	
-main()
 
