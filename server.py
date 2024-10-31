@@ -166,7 +166,7 @@ def upload():
 					
 				# Se der erro ele devolve um feedback de erro ao usuário
 				else:					
-					return f"<h1>Matrícula {mat}: Erro ao contabilizar o voto<br>Por favor, tente novamente mais tarde</h1>"
+					return render_template("message.html", mss = f"Matrícula {mat}: Erro ao contabilizar o voto.\nPor favor, tente novamente mais tarde")
 			
 			# Se não não tiver expirado, ou seja, tiver expirado
 			else: 
@@ -176,7 +176,7 @@ def upload():
 		
 		# Se não existir essa matrícula com um o código vai retornar um erro	
 		else: 
-			return render_template("message.html", mss = f"Erro. Matrícula {mat}: não possui um código.<br>Solicite um código ao mesário para votar.<br>Caso já tenha recebido um código, verifique se a matrícula ou o código foram digitados corretamente.")
+			return render_template("message.html", mss = f"Erro. Matrícula {mat}: não possui um código.\nSolicite um código ao mesário para votar.\nCaso já tenha recebido um código, verifique se a matrícula ou o código foram digitados corretamente.")
 	
 	# Se não necessitar de um mesário	
 	else:
